@@ -39,6 +39,12 @@ class _SkillsSectionState extends State<SkillsSection>
   }
 
   @override
+  void initState(){
+    super.initState();
+    _fadeCtrl.forward();
+  }
+
+  @override
   void dispose() {
     _fadeCtrl.dispose();
     super.dispose();
