@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hire_me/core/app_colors.dart';
@@ -145,9 +144,9 @@ class _SkillsSectionState extends State<SkillsSection>
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
               decoration: BoxDecoration(
-                color: cat.color.withOpacity(0.1),
+                color: cat.color.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(50),
-                border: Border.all(color: cat.color.withOpacity(0.3)),
+                border: Border.all(color: cat.color.withValues(alpha: 0.3)),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -253,21 +252,21 @@ class _SkillTab extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: isSelected
                 ? LinearGradient(
-                    colors: [c.withOpacity(0.25), c.withOpacity(0.08)],
+                    colors: [c.withValues(alpha: 0.25), c.withValues(alpha: 0.08)],
                   )
                 : null,
-            color: isSelected ? null : AppColors.surface.withOpacity(0.4),
+            color: isSelected ? null : AppColors.surface.withValues(alpha: 0.4),
             borderRadius: BorderRadius.circular(50),
             border: Border.all(
               color: isSelected
-                  ? c.withOpacity(0.7)
-                  : Colors.white.withOpacity(0.08),
+                  ? c.withValues(alpha: 0.7)
+                  : Colors.white.withValues(alpha: 0.08),
               width: isSelected ? 1.5 : 1,
             ),
             boxShadow: isSelected
                 ? [
                     BoxShadow(
-                      color: c.withOpacity(0.2),
+                      color: c.withValues(alpha: 0.2),
                       blurRadius: 16,
                       spreadRadius: -2,
                     ),
@@ -328,25 +327,25 @@ class _SkillCardState extends State<_SkillCard> {
         width: 130,
         height: 130,
         decoration: BoxDecoration(
-          color: _hovered ? c.withOpacity(0.1) : const Color(0xFF141424),
+          color: _hovered ? c.withValues(alpha: 0.1) : const Color(0xFF141424),
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: _hovered
-                ? c.withOpacity(0.6)
-                : Colors.white.withOpacity(0.07),
+                ? c.withValues(alpha: 0.6)
+                : Colors.white.withValues(alpha: 0.07),
             width: _hovered ? 1.5 : 1,
           ),
           boxShadow: _hovered
               ? [
                   BoxShadow(
-                    color: c.withOpacity(0.25),
+                    color: c.withValues(alpha: 0.25),
                     blurRadius: 24,
                     spreadRadius: -4,
                   ),
                 ]
               : [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.25),
+                    color: Colors.black.withValues(alpha: 0.25),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -360,9 +359,9 @@ class _SkillCardState extends State<_SkillCard> {
               width: 62,
               height: 62,
               decoration: BoxDecoration(
-                color: c.withOpacity(_hovered ? 0.18 : 0.08),
+                color: c.withValues(alpha: _hovered ? 0.18 : 0.08),
                 borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: c.withOpacity(_hovered ? 0.4 : 0.15)),
+                border: Border.all(color: c.withValues(alpha: _hovered ? 0.4 : 0.15)),
               ),
               child: Center(
                 child: Image.asset(

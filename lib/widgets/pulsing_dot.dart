@@ -34,7 +34,7 @@ class _PulsingDotState extends State<PulsingDot>
         color: widget.color,
         boxShadow: [
           BoxShadow(
-            color: widget.color.withOpacity(0.3 + _c.value * 0.4),
+            color: widget.color.withValues(alpha: 0.3 + _c.value * 0.4),
             blurRadius: 4 + _c.value * 6,
           ),
         ],

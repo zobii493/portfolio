@@ -1,12 +1,8 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hire_me/core/app_colors.dart';
-import 'package:hire_me/core/app_utils.dart';
-import 'package:hire_me/widgets/animated_section.dart';
 import 'package:hire_me/widgets/glass_card.dart';
-import 'package:hire_me/widgets/pulsing_dot.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:visibility_detector/visibility_detector.dart';
@@ -307,8 +303,8 @@ class _ContactSectionState extends State<ContactSection>
 
   Widget _buildForm() => GlassCard(
     borderRadius: 24,
-    bgColor: AppColors.surface.withOpacity(0.45),
-    borderColor: AppColors.primary.withOpacity(0.14),
+    bgColor: AppColors.surface.withValues(alpha: 0.45),
+    borderColor: AppColors.primary.withValues(alpha: 0.14),
     blurX: 16,
     blurY: 16,
     padding: const EdgeInsets.all(28),
@@ -380,13 +376,13 @@ class _ContactSectionState extends State<ContactSection>
     duration: const Duration(milliseconds: 200),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(14),
-      color: AppColors.background.withOpacity(0.55),
+      color: AppColors.background.withValues(alpha: 0.55),
       border: Border.all(
-        color: isFocused ? accent.withOpacity(0.75) : accent.withOpacity(0.18),
+        color: isFocused ? accent.withValues(alpha: 0.75) : accent.withValues(alpha: 0.18),
         width: isFocused ? 1.5 : 1,
       ),
       boxShadow: isFocused
-          ? [BoxShadow(color: accent.withOpacity(0.13), blurRadius: 18)]
+          ? [BoxShadow(color: accent.withValues(alpha: 0.13), blurRadius: 18)]
           : [],
     ),
     child: TextField(
@@ -424,7 +420,7 @@ class _ContactSectionState extends State<ContactSection>
         borderRadius: BorderRadius.circular(14),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primary.withOpacity(0.25 + _pulse.value * 0.2),
+            color: AppColors.primary.withValues(alpha: 0.25 + _pulse.value * 0.2),
             blurRadius: 20 + _pulse.value * 12,
             spreadRadius: -2,
           ),
@@ -516,7 +512,7 @@ class _ContactSectionState extends State<ContactSection>
             gradient: LinearGradient(
               colors: [
                 Colors.transparent,
-                AppColors.primary.withOpacity(0.3),
+                AppColors.primary.withValues(alpha: 0.3),
                 Colors.transparent,
               ],
             ),
@@ -528,7 +524,7 @@ class _ContactSectionState extends State<ContactSection>
         child: Text(
           '✦',
           style: TextStyle(
-            color: AppColors.primary.withOpacity(0.5),
+            color: AppColors.primary.withValues(alpha: 0.5),
             fontSize: 12,
           ),
         ),
@@ -540,7 +536,7 @@ class _ContactSectionState extends State<ContactSection>
             gradient: LinearGradient(
               colors: [
                 Colors.transparent,
-                AppColors.primary.withOpacity(0.3),
+                AppColors.primary.withValues(alpha: 0.3),
                 Colors.transparent,
               ],
             ),
@@ -562,7 +558,7 @@ class _ContactInfo {
 }
 
 class _SocialData {
-  final IconData icon;
+  final FaIconData icon;
   final String label, url;
   final Color color;
 
@@ -577,8 +573,8 @@ class _InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) => GlassCard(
     borderRadius: 16,
-    bgColor: AppColors.surface.withOpacity(0.45),
-    borderColor: item.color.withOpacity(0.2),
+    bgColor: AppColors.surface.withValues(alpha: 0.45),
+    borderColor: item.color.withValues(alpha: 0.2),
     blurX: 8,
     blurY: 8,
     padding: const EdgeInsets.all(16),
@@ -590,12 +586,12 @@ class _InfoCard extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                item.color.withOpacity(0.22),
-                item.color.withOpacity(0.05),
+                item.color.withValues(alpha: 0.22),
+                item.color.withValues(alpha: 0.05),
               ],
             ),
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: item.color.withOpacity(0.3)),
+            border: Border.all(color: item.color.withValues(alpha: 0.3)),
           ),
           child: Icon(item.icon, color: item.color, size: 18),
         ),
@@ -661,17 +657,17 @@ class _SocialBtnState extends State<_SocialBtn> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: _hovered
-              ? widget.item.color.withOpacity(0.15)
-              : AppColors.surface.withOpacity(0.5),
+              ? widget.item.color.withValues(alpha: 0.15)
+              : AppColors.surface.withValues(alpha: 0.5),
           border: Border.all(
             color: _hovered
-                ? widget.item.color.withOpacity(0.65)
-                : AppColors.primary.withOpacity(0.12),
+                ? widget.item.color.withValues(alpha: 0.65)
+                : AppColors.primary.withValues(alpha: 0.12),
           ),
           boxShadow: _hovered
               ? [
                   BoxShadow(
-                    color: widget.item.color.withOpacity(0.22),
+                    color: widget.item.color.withValues(alpha: 0.22),
                     blurRadius: 14,
                   ),
                 ]

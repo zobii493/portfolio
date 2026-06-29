@@ -69,10 +69,10 @@ class _PortfolioTopBarState extends State<PortfolioTopBar>
               builder: (_, __) => Container(
                 height: 70,
                 decoration: BoxDecoration(
-                  color: AppColors.cardColor.withOpacity(0.82),
+                  color: AppColors.cardColor.withValues(alpha: 0.82),
                   border: Border(
                     bottom: BorderSide(
-                      color: AppColors.primary.withOpacity(
+                      color: AppColors.primary.withValues(alpha: 
                         0.08 + _glowCtrl.value * 0.10,
                       ),
                       width: 1,
@@ -235,7 +235,7 @@ class _HireMeBtnState extends State<_HireMeBtn> {
             ),
             boxShadow: [
               BoxShadow(
-                color: AppColors.primary.withOpacity(
+                color: AppColors.primary.withValues(alpha: 
                   _hovered ? 0.45 : 0.18 + widget.glowCtrl.value * 0.12,
                 ),
                 blurRadius: _hovered ? 24 : 14,
@@ -314,9 +314,9 @@ class _HamburgerBtnState extends State<_HamburgerBtn> {
           height: 42,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(11),
-            color: AppColors.surface.withOpacity(0.7),
+            color: AppColors.surface.withValues(alpha: 0.7),
             border: Border.all(
-              color: AppColors.primary.withOpacity(
+              color: AppColors.primary.withValues(alpha: 
                 0.15 + widget.glowCtrl.value * 0.15,
               ),
             ),
@@ -377,7 +377,7 @@ class _DrawerOverlayState extends State<_DrawerOverlay>
           GestureDetector(
             onTap: _close,
             child: Container(
-              color: Colors.black.withOpacity(0.5 * _ctrl.value),
+              color: Colors.black.withValues(alpha: 0.5 * _ctrl.value),
               width: double.infinity,
               height: double.infinity,
             ),
@@ -443,10 +443,10 @@ class _MobileDrawerState extends State<_MobileDrawer>
         width: 280,
         height: double.infinity,
         decoration: BoxDecoration(
-          color: AppColors.cardColor.withOpacity(0.95),
+          color: AppColors.cardColor.withValues(alpha: 0.95),
           border: Border(
             left: BorderSide(
-              color: AppColors.primary.withOpacity(0.15),
+              color: AppColors.primary.withValues(alpha: 0.15),
               width: 1,
             ),
           ),
@@ -467,9 +467,9 @@ class _MobileDrawerState extends State<_MobileDrawer>
                         height: 36,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(9),
-                          color: AppColors.surface.withOpacity(0.6),
+                          color: AppColors.surface.withValues(alpha: 0.6),
                           border: Border.all(
-                            color: Colors.white.withOpacity(0.08),
+                            color: Colors.white.withValues(alpha: 0.08),
                           ),
                         ),
                         child: const Icon(
@@ -483,7 +483,7 @@ class _MobileDrawerState extends State<_MobileDrawer>
                 ),
               ),
               const SizedBox(height: 10),
-              Divider(color: Colors.white.withOpacity(0.06)),
+              Divider(color: Colors.white.withValues(alpha: 0.06)),
               const SizedBox(height: 10),
               Expanded(
                 child: SingleChildScrollView(
@@ -538,7 +538,7 @@ class _MobileDrawerState extends State<_MobileDrawer>
                               ),
                               boxShadow: [
                                 BoxShadow(
-                                  color: AppColors.primary.withOpacity(0.3),
+                                  color: AppColors.primary.withValues(alpha: 0.3),
                                   blurRadius: 20,
                                   spreadRadius: -4,
                                 ),
@@ -567,9 +567,9 @@ class _MobileDrawerState extends State<_MobileDrawer>
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            color: const Color(0xFF00C853).withOpacity(0.1),
+                            color: const Color(0xFF00C853).withValues(alpha: 0.1),
                             border: Border.all(
-                              color: const Color(0xFF00C853).withOpacity(0.3),
+                              color: const Color(0xFF00C853).withValues(alpha: 0.3),
                             ),
                           ),
                           child: Row(
@@ -637,13 +637,13 @@ class _DrawerNavItemState extends State<_DrawerNavItem> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(14),
           color: widget.isActive
-              ? AppColors.primary.withOpacity(0.1)
+              ? AppColors.primary.withValues(alpha: 0.1)
               : _hovered
-              ? AppColors.surface.withOpacity(0.5)
+              ? AppColors.surface.withValues(alpha: 0.5)
               : Colors.transparent,
           border: Border.all(
             color: widget.isActive
-                ? AppColors.primary.withOpacity(0.35)
+                ? AppColors.primary.withValues(alpha: 0.35)
                 : Colors.transparent,
           ),
         ),
@@ -655,8 +655,8 @@ class _DrawerNavItemState extends State<_DrawerNavItem> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(7),
                 color: widget.isActive
-                    ? AppColors.primary.withOpacity(0.15)
-                    : AppColors.surface.withOpacity(0.6),
+                    ? AppColors.primary.withValues(alpha: 0.15)
+                    : AppColors.surface.withValues(alpha: 0.6),
               ),
               child: Center(
                 child: Text(

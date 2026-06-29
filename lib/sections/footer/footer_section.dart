@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -89,9 +88,9 @@ class _FooterSectionState extends State<FooterSection>
         gradient: LinearGradient(
           colors: [
             Colors.transparent,
-            AppColors.primary.withOpacity(0.3 + _glowCtrl.value * 0.4),
-            AppColors.secondary.withOpacity(0.5 + _glowCtrl.value * 0.3),
-            AppColors.accent.withOpacity(0.3 + _glowCtrl.value * 0.4),
+            AppColors.primary.withValues(alpha: 0.3 + _glowCtrl.value * 0.4),
+            AppColors.secondary.withValues(alpha: 0.5 + _glowCtrl.value * 0.3),
+            AppColors.accent.withValues(alpha: 0.3 + _glowCtrl.value * 0.4),
             Colors.transparent,
           ],
           stops: const [0.0, 0.25, 0.5, 0.75, 1.0],
@@ -115,7 +114,7 @@ class _FooterSectionState extends State<FooterSection>
             end: Alignment.bottomRight,
             colors: [
               AppColors.background,
-              AppColors.surface.withOpacity(0.3),
+              AppColors.surface.withValues(alpha: 0.3),
               AppColors.background,
             ],
           ),
@@ -294,9 +293,9 @@ class _FooterSectionState extends State<FooterSection>
       Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
-          color: const Color(0xFF00C853).withOpacity(0.1),
+          color: const Color(0xFF00C853).withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(50),
-          border: Border.all(color: const Color(0xFF00C853).withOpacity(0.3)),
+          border: Border.all(color: const Color(0xFF00C853).withValues(alpha: 0.3)),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -344,7 +343,7 @@ class _FooterSectionState extends State<FooterSection>
                 width: 5,
                 height: 5,
                 decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.6),
+                  color: AppColors.primary.withValues(alpha: 0.6),
                   shape: BoxShape.circle,
                 ),
               ),
@@ -386,7 +385,7 @@ class _FooterSectionState extends State<FooterSection>
       Container(
         width: 20,
         height: 2,
-        color: AppColors.primary.withOpacity(0.7),
+        color: AppColors.primary.withValues(alpha: 0.7),
       ),
       const SizedBox(width: 8),
       Text(
@@ -405,7 +404,7 @@ class _FooterSectionState extends State<FooterSection>
     width: double.infinity,
     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
     decoration: BoxDecoration(
-      border: Border(top: BorderSide(color: Colors.white.withOpacity(0.05))),
+      border: Border(top: BorderSide(color: Colors.white.withValues(alpha: 0.05))),
       color: const Color(0xFF020206),
     ),
     child: LayoutBuilder(
@@ -418,7 +417,7 @@ class _FooterSectionState extends State<FooterSection>
               '© ${DateTime.now().year} ',
               style: GoogleFonts.jetBrainsMono(
                 fontSize: 11,
-                color: AppColors.textSecondary.withOpacity(0.6),
+                color: AppColors.textSecondary.withValues(alpha: 0.6),
               ),
             ),
             ShaderMask(
@@ -438,7 +437,7 @@ class _FooterSectionState extends State<FooterSection>
               ' · All rights reserved',
               style: GoogleFonts.jetBrainsMono(
                 fontSize: 11,
-                color: AppColors.textSecondary.withOpacity(0.6),
+                color: AppColors.textSecondary.withValues(alpha: 0.6),
               ),
             ),
           ],
@@ -450,7 +449,7 @@ class _FooterSectionState extends State<FooterSection>
               'Built with ',
               style: GoogleFonts.jetBrainsMono(
                 fontSize: 11,
-                color: AppColors.textSecondary.withOpacity(0.5),
+                color: AppColors.textSecondary.withValues(alpha: 0.5),
               ),
             ),
             const FaIcon(
@@ -462,7 +461,7 @@ class _FooterSectionState extends State<FooterSection>
               ' Flutter & Dart ',
               style: GoogleFonts.jetBrainsMono(
                 fontSize: 11,
-                color: AppColors.textSecondary.withOpacity(0.5),
+                color: AppColors.textSecondary.withValues(alpha: 0.5),
               ),
             ),
             const FaIcon(
@@ -510,12 +509,12 @@ class _PulseBadge extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
               border: Border.all(
-                color: AppColors.primary.withOpacity(0.25 + v * 0.35),
+                color: AppColors.primary.withValues(alpha: 0.25 + v * 0.35),
               ),
-              color: AppColors.primary.withOpacity(0.06 + v * 0.04),
+              color: AppColors.primary.withValues(alpha: 0.06 + v * 0.04),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primary.withOpacity(0.1 + v * 0.12),
+                  color: AppColors.primary.withValues(alpha: 0.1 + v * 0.12),
                   blurRadius: 20 + v * 10,
                 ),
               ],
@@ -548,7 +547,7 @@ class _PulseBadge extends StatelessWidget {
 }
 
 class _FooterSocial {
-  final IconData icon;
+  final FaIconData icon;
   final String label, handle;
   final Color color;
 
@@ -636,11 +635,11 @@ class _SocialCardState extends State<_SocialCard> {
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
-            color: _hovered ? c.withOpacity(0.1) : Colors.transparent,
+            color: _hovered ? c.withValues(alpha: 0.1) : Colors.transparent,
             border: Border.all(
               color: _hovered
-                  ? c.withOpacity(0.45)
-                  : Colors.white.withOpacity(0.06),
+                  ? c.withValues(alpha: 0.45)
+                  : Colors.white.withValues(alpha: 0.06),
             ),
           ),
           child: Row(
@@ -649,7 +648,7 @@ class _SocialCardState extends State<_SocialCard> {
                 width: 34,
                 height: 34,
                 decoration: BoxDecoration(
-                  color: c.withOpacity(_hovered ? 0.2 : 0.08),
+                  color: c.withValues(alpha: _hovered ? 0.2 : 0.08),
                   borderRadius: BorderRadius.circular(9),
                 ),
                 child: Center(

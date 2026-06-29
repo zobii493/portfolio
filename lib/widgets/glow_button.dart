@@ -52,13 +52,13 @@ class _GlowButtonState extends State<GlowButton> {
             border: Border.all(
               color: widget.filled
                   ? Colors.transparent
-                  : AppColors.primary.withOpacity(_hovered ? 0.7 : 0.35),
+                  : AppColors.primary.withValues(alpha: _hovered ? 0.7 : 0.35),
               width: 1.5,
             ),
             boxShadow: widget.filled
                 ? [
               BoxShadow(
-                color: AppColors.primary.withOpacity(_hovered ? 0.45 : 0.2),
+                color: AppColors.primary.withValues(alpha: _hovered ? 0.45 : 0.2),
                 blurRadius: _hovered ? 28 : 14,
                 spreadRadius: -4,
               ),

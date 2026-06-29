@@ -186,12 +186,12 @@ class AboutSection extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            const Color(0xFF00F5FF).withOpacity(0.05),
-            const Color(0xFF0080FF).withOpacity(0.05),
+            const Color(0xFF00F5FF).withValues(alpha: 0.05),
+            const Color(0xFF0080FF).withValues(alpha: 0.05),
           ],
         ),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFF00F5FF).withOpacity(0.2)),
+        border: Border.all(color: const Color(0xFF00F5FF).withValues(alpha: 0.2)),
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -262,7 +262,7 @@ class _KeyPoint extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF00F5FF).withOpacity(0.3),
+              color: const Color(0xFF00F5FF).withValues(alpha: 0.3),
               blurRadius: 15,
               spreadRadius: 2,
             ),
@@ -332,13 +332,13 @@ class _TimelineItem extends StatelessWidget {
               border: Border.all(
                 color: isActive
                     ? Colors.transparent
-                    : const Color(0xFF00F5FF).withOpacity(0.5),
+                    : const Color(0xFF00F5FF).withValues(alpha: 0.5),
                 width: 2,
               ),
               boxShadow: isActive
                   ? [
                       BoxShadow(
-                        color: const Color(0xFF00F5FF).withOpacity(0.5),
+                        color: const Color(0xFF00F5FF).withValues(alpha: 0.5),
                         blurRadius: 10,
                         spreadRadius: 2,
                       ),
@@ -424,12 +424,12 @@ class _StatItem extends StatelessWidget {
                 gradient: LinearGradient(
                   colors: [
                     Color.lerp(
-                      const Color(0xFF00F5FF).withOpacity(0.2),
+                      const Color(0xFF00F5FF).withValues(alpha: 0.2),
                       const Color(0xFF00F5FF),
                       value,
                     )!,
                     Color.lerp(
-                      const Color(0xFF0080FF).withOpacity(0.2),
+                      const Color(0xFF0080FF).withValues(alpha: 0.2),
                       const Color(0xFF0080FF),
                       value,
                     )!,
@@ -438,7 +438,7 @@ class _StatItem extends StatelessWidget {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF00F5FF).withOpacity(0.3 * value),
+                    color: const Color(0xFF00F5FF).withValues(alpha: 0.3 * value),
                     blurRadius: 20,
                     spreadRadius: 5,
                   ),

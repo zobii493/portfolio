@@ -1,5 +1,4 @@
 import 'dart:ui';
-import '../main.dart';
 
 class AppColors{
   static const primary = Color(0xFF00F5FF); //cyan

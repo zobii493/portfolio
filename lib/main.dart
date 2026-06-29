@@ -11,10 +11,7 @@ void main() async {
     GoogleFonts.dmSans(),
     GoogleFonts.poppins(),
     GoogleFonts.inter(),
-    GoogleFonts.firaCode(),
     GoogleFonts.jetBrainsMono(),
-    GoogleFonts.playfairDisplay(),
-    GoogleFonts.spaceGrotesk(),
   ]);
 
   runApp(

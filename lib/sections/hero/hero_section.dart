@@ -232,10 +232,10 @@ class _HeroSectionState extends State<HeroSection>
                   shape: BoxShape.circle,
                   gradient: RadialGradient(
                     colors: [
-                      AppColors.primary.withOpacity(
+                      AppColors.primary.withValues(alpha: 
                         0.07 + _glowCtrl.value * 0.06,
                       ),
-                      AppColors.secondary.withOpacity(0.04),
+                      AppColors.secondary.withValues(alpha: 0.04),
                       Colors.transparent,
                     ],
                   ),
@@ -261,12 +261,12 @@ class _HeroSectionState extends State<HeroSection>
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    AppColors.primary.withOpacity(0.2),
-                    AppColors.secondary.withOpacity(0.15),
+                    AppColors.primary.withValues(alpha: 0.2),
+                    AppColors.secondary.withValues(alpha: 0.15),
                   ],
                 ),
                 border: Border.all(
-                  color: AppColors.primary.withOpacity(0.25),
+                  color: AppColors.primary.withValues(alpha: 0.25),
                   width: 2,
                 ),
               ),
@@ -278,7 +278,7 @@ class _HeroSectionState extends State<HeroSection>
                     color: AppColors.surface,
                     child: Icon(
                       Icons.person_rounded,
-                      color: AppColors.primary.withOpacity(0.4),
+                      color: AppColors.primary.withValues(alpha: 0.4),
                       size: size * 0.35,
                     ),
                   ),
@@ -325,9 +325,9 @@ class _HelloBadge extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         border: Border.all(
-          color: AppColors.primary.withOpacity(0.2 + glowCtrl.value * 0.25),
+          color: AppColors.primary.withValues(alpha: 0.2 + glowCtrl.value * 0.25),
         ),
-        color: AppColors.primary.withOpacity(0.05 + glowCtrl.value * 0.04),
+        color: AppColors.primary.withValues(alpha: 0.05 + glowCtrl.value * 0.04),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -340,7 +340,7 @@ class _HelloBadge extends StatelessWidget {
               color: AppColors.primary,
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primary.withOpacity(
+                  color: AppColors.primary.withValues(alpha: 
                     0.5 + glowCtrl.value * 0.3,
                   ),
                   blurRadius: 6,
@@ -429,7 +429,7 @@ class _TypingRole extends StatelessWidget {
           '< ',
           style: GoogleFonts.firaCode(
             fontSize: 20,
-            color: AppColors.secondary.withOpacity(0.6),
+            color: AppColors.secondary.withValues(alpha: 0.6),
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -440,7 +440,7 @@ class _TypingRole extends StatelessWidget {
             color: AppColors.primary,
             fontWeight: FontWeight.w600,
             shadows: [
-              Shadow(color: AppColors.primary.withOpacity(0.4), blurRadius: 12),
+              Shadow(color: AppColors.primary.withValues(alpha: 0.4), blurRadius: 12),
             ],
           ),
         ),
@@ -460,7 +460,7 @@ class _TypingRole extends StatelessWidget {
           ' />',
           style: GoogleFonts.firaCode(
             fontSize: 20,
-            color: AppColors.secondary.withOpacity(0.6),
+            color: AppColors.secondary.withValues(alpha: 0.6),
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -511,17 +511,17 @@ class _SocialIconState extends State<_SocialIcon> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: _hovered
-              ? widget.item.color.withOpacity(0.12)
-              : AppColors.surface.withOpacity(0.5),
+              ? widget.item.color.withValues(alpha: 0.12)
+              : AppColors.surface.withValues(alpha: 0.5),
           border: Border.all(
             color: _hovered
-                ? widget.item.color.withOpacity(0.55)
-                : Colors.white.withOpacity(0.07),
+                ? widget.item.color.withValues(alpha: 0.55)
+                : Colors.white.withValues(alpha: 0.07),
           ),
           boxShadow: _hovered
               ? [
                   BoxShadow(
-                    color: widget.item.color.withOpacity(0.2),
+                    color: widget.item.color.withValues(alpha: 0.2),
                     blurRadius: 14,
                   ),
                 ]
@@ -591,7 +591,7 @@ class _HireMeButtonState extends State<_HireMeButton> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primary.withOpacity(
+                  color: AppColors.primary.withValues(alpha: 
                     _hovered ? 0.5 : 0.25 + gv * 0.15,
                   ),
                   blurRadius: _hovered ? 32 : 18,
@@ -627,7 +627,7 @@ class _HireMeButtonState extends State<_HireMeButton> {
 
 class _FloatingTag extends StatelessWidget {
   final String label;
-  final IconData icon;
+  final FaIconData icon;
   final Color color;
 
   const _FloatingTag({
@@ -644,9 +644,9 @@ class _FloatingTag extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
         decoration: BoxDecoration(
-          color: color.withOpacity(0.12),
+          color: color.withValues(alpha: 0.12),
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: color.withOpacity(0.35)),
+          border: Border.all(color: color.withValues(alpha: 0.35)),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -688,7 +688,7 @@ class _BgPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final dotPaint = Paint()
-      ..color = AppColors.primary.withOpacity(0.03)
+      ..color = AppColors.primary.withValues(alpha: 0.03)
       ..style = PaintingStyle.fill;
     const spacing = 40.0;
     for (double x = 0; x < size.width; x += spacing) {
@@ -703,7 +703,7 @@ class _BgPainter extends CustomPainter {
         ..shader =
             RadialGradient(
               colors: [
-                AppColors.secondary.withOpacity(0.07 + t * 0.05),
+                AppColors.secondary.withValues(alpha: 0.07 + t * 0.05),
                 Colors.transparent,
               ],
             ).createShader(
@@ -720,7 +720,7 @@ class _BgPainter extends CustomPainter {
         ..shader =
             RadialGradient(
               colors: [
-                AppColors.accent.withOpacity(0.05 + (1 - t) * 0.04),
+                AppColors.accent.withValues(alpha: 0.05 + (1 - t) * 0.04),
                 Colors.transparent,
               ],
             ).createShader(
@@ -742,7 +742,7 @@ class _OrbitRingPainter extends CustomPainter {
     final center = Offset(size.width / 2, size.height / 2);
     final radius = size.width / 2;
     final paint = Paint()
-      ..color = AppColors.primary.withOpacity(0.18)
+      ..color = AppColors.primary.withValues(alpha: 0.18)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.2;
 
