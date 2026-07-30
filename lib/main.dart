@@ -6,14 +6,6 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await GoogleFonts.pendingFonts([
-    GoogleFonts.dmSans(),
-    GoogleFonts.poppins(),
-    GoogleFonts.inter(),
-    GoogleFonts.jetBrainsMono(),
-  ]);
-
   runApp(
     ChangeNotifierProvider(
       create: (_) => NavProvider(),

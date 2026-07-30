@@ -173,7 +173,7 @@ class ProjectsSection extends StatelessWidget {
   );
 }
 
-// ── Project Row ───────────────────────────────────────────────
+// ── Project Row
 
 class _ProjectRow extends StatelessWidget {
   final ProjectItem project;

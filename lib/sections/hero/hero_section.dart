@@ -194,13 +194,13 @@ class _HeroSectionState extends State<HeroSection>
         const SizedBox(height: 30),
         _SocialRow(centered: centered),
         const SizedBox(height: 26),
-        // CTA Buttons — GlowButton use kar rahe hain
+        // CTA Buttons — GlowButton
         Wrap(
           alignment: centered ? WrapAlignment.center : WrapAlignment.start,
           spacing: 16,
           runSpacing: 12,
           children: [
-            // Hire Me — custom gradient wala (GlowButton filled)
+            // Hire Me — custom gradient
             _HireMeButton(glowCtrl: _glowCtrl, onTap: widget.onHireMe),
             GlowButton(
               label: 'Download CV',
@@ -310,7 +310,7 @@ class _HeroSectionState extends State<HeroSection>
   }
 }
 
-// ── Sub widgets (UI same) ─────────────────────────────────────
+// ── Sub widgets (UI same)
 
 class _HelloBadge extends StatelessWidget {
   final AnimationController glowCtrl;
