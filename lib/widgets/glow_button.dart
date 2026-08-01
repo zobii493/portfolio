@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hire_me/core/app_colors.dart';
 
 class GlowButton extends StatefulWidget {
@@ -72,7 +71,8 @@ class _GlowButtonState extends State<GlowButton> {
               const SizedBox(width: 9),
               Text(
                 widget.label,
-                style: GoogleFonts.poppins(
+                style: TextStyle(
+                  fontFamily: 'Poppins',
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
                   color: textColor,

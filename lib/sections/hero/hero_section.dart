@@ -2,7 +2,6 @@ import 'dart:math' as math;
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hire_me/core/app_colors.dart';
 import 'package:hire_me/core/app_utils.dart';
 import 'package:hire_me/data/social_data.dart';
@@ -28,9 +27,15 @@ class _HeroSectionState extends State<HeroSection>
   late final Animation<Offset> _slideAnim;
   late final Animation<double> _scaleAnim;
 
-  final String _fullRole = "Flutter Developer";
+  final List<String> _roles = [
+    "Flutter Developer",
+    "Mobile App Developer",
+    "UI/UX Designer",
+  ];
+  int _roleIndex = 0;
   int _typedChars = 0;
   bool _showCursor = true;
+  bool _isDeleting = false;
 
   @override
   void initState() {
@@ -50,7 +55,7 @@ class _HeroSectionState extends State<HeroSection>
     )..repeat();
     _typingCtrl = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: _fullRole.length * 80 + 400),
+      duration: const Duration(milliseconds: 100),
     );
 
     _fadeAnim = CurvedAnimation(parent: _entryCtrl, curve: Curves.easeOut);
@@ -64,23 +69,53 @@ class _HeroSectionState extends State<HeroSection>
     ).animate(CurvedAnimation(parent: _entryCtrl, curve: Curves.easeOutBack));
 
     _entryCtrl.forward();
-    Future.delayed(const Duration(milliseconds: 600), _startTyping);
+    Future.delayed(const Duration(milliseconds: 600), _startTypingLoop);
   }
 
-  void _startTyping() {
-    _typingCtrl.addListener(() {
-      final newCount = (_typingCtrl.value * _fullRole.length).round();
-      if (newCount != _typedChars) setState(() => _typedChars = newCount);
+  void _startTypingLoop() async {
+    if (!mounted) return;
+
+    final currentRole = _roles[_roleIndex];
+
+    if (_isDeleting) {
+      if (_typedChars > 0) {
+        setState(() => _typedChars--);
+        await Future.delayed(const Duration(milliseconds: 50));
+      } else {
+        _isDeleting = false;
+        _roleIndex = (_roleIndex + 1) % _roles.length;
+        await Future.delayed(const Duration(milliseconds: 500));
+      }
+    } else {
+      if (_typedChars < currentRole.length) {
+        setState(() => _typedChars++);
+        await Future.delayed(const Duration(milliseconds: 100));
+      } else {
+        _isDeleting = true;
+        await Future.delayed(const Duration(milliseconds: 2000));
+      }
+    }
+
+    _startTypingLoop();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    Future.delayed(Duration.zero, () {
+      if (mounted) {
+        _blinkCursor();
+      }
     });
-    _typingCtrl.forward();
-    Future.delayed(const Duration(milliseconds: 200), _blinkCursor);
   }
 
   void _blinkCursor() {
     if (!mounted) return;
     Future.delayed(const Duration(milliseconds: 500), () {
-      if (mounted) setState(() => _showCursor = !_showCursor);
-      _blinkCursor();
+      if (mounted) {
+        setState(() => _showCursor = !_showCursor);
+        _blinkCursor();
+      }
     });
   }
 
@@ -173,7 +208,7 @@ class _HeroSectionState extends State<HeroSection>
         _AnimatedName(glowCtrl: _glowCtrl, textAlign: align),
         const SizedBox(height: 14),
         _TypingRole(
-          typed: _fullRole.substring(0, _typedChars),
+          typed: _roles[_roleIndex].substring(0, _typedChars),
           showCursor: _showCursor,
           textAlign: align,
         ),
@@ -184,7 +219,8 @@ class _HeroSectionState extends State<HeroSection>
             "I craft high-performance, scalable mobile & web apps with Flutter — "
             "focusing on clean architecture, smooth animations, and pixel-perfect UI.",
             textAlign: align,
-            style: GoogleFonts.dmSans(
+            style: const TextStyle(
+              fontFamily: 'DMSans',
               fontSize: 15.5,
               color: AppColors.textSecondary,
               height: 1.75,
@@ -351,7 +387,8 @@ class _HelloBadge extends StatelessWidget {
           const SizedBox(width: 9),
           Text(
             "Hello, I'm",
-            style: GoogleFonts.dmSans(
+            style: const TextStyle(
+              fontFamily: 'DMSans',
               fontSize: 13,
               color: AppColors.primary,
               fontWeight: FontWeight.w600,
@@ -393,7 +430,8 @@ class _AnimatedName extends StatelessWidget {
       child: Text(
         'Zohaib Hassan',
         textAlign: textAlign,
-        style: GoogleFonts.playfairDisplay(
+        style: const TextStyle(
+          fontFamily: 'PlayfairDisplay',
           fontSize: 52,
           fontWeight: FontWeight.w800,
           color: Colors.white,
@@ -427,20 +465,22 @@ class _TypingRole extends StatelessWidget {
       children: [
         Text(
           '< ',
-          style: GoogleFonts.firaCode(
+          style: const TextStyle(
+            fontFamily: 'FiraCode',
             fontSize: 20,
-            color: AppColors.secondary.withValues(alpha: 0.6),
+            color: AppColors.secondary,
             fontWeight: FontWeight.w500,
           ),
         ),
         Text(
           typed,
-          style: GoogleFonts.firaCode(
+          style: const TextStyle(
+            fontFamily: 'FiraCode',
             fontSize: 20,
             color: AppColors.primary,
             fontWeight: FontWeight.w600,
             shadows: [
-              Shadow(color: AppColors.primary.withValues(alpha: 0.4), blurRadius: 12),
+              Shadow(color: AppColors.primary, blurRadius: 12),
             ],
           ),
         ),
@@ -449,7 +489,8 @@ class _TypingRole extends StatelessWidget {
           duration: const Duration(milliseconds: 100),
           child: Text(
             '|',
-            style: GoogleFonts.firaCode(
+            style: const TextStyle(
+              fontFamily: 'FiraCode',
               fontSize: 22,
               color: AppColors.primary,
               fontWeight: FontWeight.w300,
@@ -458,9 +499,10 @@ class _TypingRole extends StatelessWidget {
         ),
         Text(
           ' />',
-          style: GoogleFonts.firaCode(
+          style: const TextStyle(
+            fontFamily: 'FiraCode',
             fontSize: 20,
-            color: AppColors.secondary.withValues(alpha: 0.6),
+            color: AppColors.secondary,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -539,7 +581,8 @@ class _SocialIconState extends State<_SocialIcon> {
               const SizedBox(width: 7),
               Text(
                 widget.item.label,
-                style: GoogleFonts.dmSans(
+                style: TextStyle(
+                  fontFamily: 'DMSans',
                   fontSize: 12,
                   color: widget.item.color,
                   fontWeight: FontWeight.w600,
@@ -553,7 +596,7 @@ class _SocialIconState extends State<_SocialIcon> {
   );
 }
 
-// Hire Me button — glow animation wali (GlowButton se alag hai isliye alag rakhi)
+// Hire Me button
 class _HireMeButton extends StatefulWidget {
   final AnimationController glowCtrl;
   final VoidCallback? onTap;
@@ -610,7 +653,8 @@ class _HireMeButtonState extends State<_HireMeButton> {
                 const SizedBox(width: 9),
                 Text(
                   'Hire Me',
-                  style: GoogleFonts.dmSans(
+                  style: const TextStyle(
+                    fontFamily: 'DMSans',
                     fontSize: 15,
                     fontWeight: FontWeight.w800,
                     color: Colors.black,
@@ -655,7 +699,8 @@ class _FloatingTag extends StatelessWidget {
             const SizedBox(width: 6),
             Text(
               label,
-              style: GoogleFonts.firaCode(
+              style: TextStyle(
+                fontFamily: 'FiraCode',
                 fontSize: 11,
                 color: color,
                 fontWeight: FontWeight.w700,

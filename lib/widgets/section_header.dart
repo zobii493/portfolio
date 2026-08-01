@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hire_me/core/app_colors.dart';
 
 class SectionHeader extends StatelessWidget {
@@ -27,7 +26,8 @@ class SectionHeader extends StatelessWidget {
             const SizedBox(width: 12),
             Text(
               label,
-              style: GoogleFonts.jetBrainsMono(
+              style: const TextStyle(
+                fontFamily: 'JetBrainsMono',
                 fontSize: 11,
                 letterSpacing: 4,
                 color: AppColors.primary,
@@ -48,7 +48,8 @@ class SectionHeader extends StatelessWidget {
           child: Text(
             title,
             textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(
+            style: TextStyle(
+              fontFamily: 'Poppins',
               fontSize: titleSize,
               fontWeight: FontWeight.w800,
               color: Colors.white,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hire_me/core/app_colors.dart';
 import 'package:hire_me/data/skills_data.dart';
 import 'package:hire_me/widgets/animated_section.dart';
@@ -83,7 +82,8 @@ class _SkillsSectionState extends State<SkillsSection>
     child: Text(
       'Flutter developer passionate about building cross-platform apps with smooth animations, clean architecture, and pixel-perfect UIs.',
       textAlign: TextAlign.center,
-      style: GoogleFonts.inter(
+      style: const TextStyle(
+        fontFamily: 'Inter',
         fontSize: 15,
         color: AppColors.textSecondary,
         height: 1.7,
@@ -155,7 +155,8 @@ class _SkillsSectionState extends State<SkillsSection>
                   const SizedBox(width: 7),
                   Text(
                     cat.title,
-                    style: GoogleFonts.jetBrainsMono(
+                    style: TextStyle(
+                      fontFamily: 'JetBrainsMono',
                       fontSize: 11,
                       letterSpacing: 1.5,
                       color: cat.color,
@@ -206,7 +207,8 @@ class _SkillsSectionState extends State<SkillsSection>
           Expanded(
             child: Text(
               "I actively build web apps, mobile apps and pixel-perfect UIs. Truly passionate about my work, I always strive to raise the bar with every project. In my spare time I enjoy photography and exploring emerging technologies.",
-              style: GoogleFonts.inter(
+              style: const TextStyle(
+                fontFamily: 'Inter',
                 fontSize: 14.5,
                 color: AppColors.textSecondary,
                 height: 1.75,
@@ -287,7 +289,8 @@ class _SkillTab extends StatelessWidget {
                   category.title,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
-                  style: GoogleFonts.inter(
+                  style: TextStyle(
+                    fontFamily: 'Inter',
                     fontSize: 12.5,
                     fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
                     color: isSelected ? c : AppColors.textSecondary,
@@ -382,7 +385,8 @@ class _SkillCardState extends State<_SkillCard> {
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.inter(
+                style: TextStyle(
+                  fontFamily: 'Inter',
                   fontSize: 12,
                   fontWeight: _hovered ? FontWeight.w700 : FontWeight.w500,
                   color: _hovered ? Colors.white : AppColors.textSecondary,

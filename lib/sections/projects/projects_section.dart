@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hire_me/core/app_colors.dart';
 import 'package:hire_me/core/app_utils.dart';
 import 'package:hire_me/data/projects_data.dart';
@@ -103,7 +102,8 @@ class ProjectsSection extends StatelessWidget {
     children: [
       Text(
         'Turning Ideas into Real-World Applications',
-        style: GoogleFonts.poppins(
+        style: TextStyle(
+          fontFamily: 'Poppins',
           fontSize: isMobile ? 16 : 22,
           fontWeight: FontWeight.w700,
           color: AppColors.text,
@@ -115,7 +115,8 @@ class ProjectsSection extends StatelessWidget {
         constraints: const BoxConstraints(maxWidth: 600),
         child: Text(
           'A showcase of featured work where creativity meets clean architecture, performance, and modern user experience.',
-          style: GoogleFonts.inter(
+          style: TextStyle(
+            fontFamily: 'Inter',
             fontSize: isMobile ? 13 : 15,
             color: AppColors.textSecondary,
             height: 1.7,
@@ -148,7 +149,8 @@ class ProjectsSection extends StatelessWidget {
             SizedBox(width: isMobile ? 8 : 12),
             Text(
               'Want to see more? ',
-              style: GoogleFonts.inter(
+              style: TextStyle(
+                fontFamily: 'Inter',
                 color: AppColors.textSecondary,
                 fontSize: isMobile ? 12 : 14,
               ),
@@ -159,7 +161,8 @@ class ProjectsSection extends StatelessWidget {
           onTap: () => openLink('https://github.com/zobii493'),
           child: Text(
             'Visit my GitHub →',
-            style: GoogleFonts.inter(
+            style: TextStyle(
+              fontFamily: 'Inter',
               color: AppColors.primary,
               fontSize: isMobile ? 12 : 14,
               fontWeight: FontWeight.w700,
@@ -235,7 +238,8 @@ class _ProjectRow extends StatelessWidget {
       SizedBox(height: isMobile ? 0 : 16),
       Text(
         project.title,
-        style: GoogleFonts.poppins(
+        style: TextStyle(
+          fontFamily: 'Poppins',
           color: Colors.white,
           fontSize: isMobile
               ? 18
@@ -250,7 +254,8 @@ class _ProjectRow extends StatelessWidget {
         project.description,
         maxLines: isMobile ? 4 : 3,
         overflow: TextOverflow.ellipsis,
-        style: GoogleFonts.inter(
+        style: TextStyle(
+          fontFamily: 'Inter',
           color: AppColors.textSecondary,
           fontSize: isMobile ? 13 : 14,
           height: 1.6,
@@ -275,7 +280,7 @@ class _ProjectRow extends StatelessWidget {
     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
     child: Text(
       label,
-      style: GoogleFonts.inter(color: AppColors.accent, fontSize: 11),
+      style: const TextStyle(fontFamily: 'Inter', color: AppColors.accent, fontSize: 11),
     ),
   );
 
@@ -299,7 +304,8 @@ class _ProjectRow extends StatelessWidget {
           const SizedBox(width: 6),
           Text(
             'Code',
-            style: GoogleFonts.poppins(
+            style: TextStyle(
+              fontFamily: 'Poppins',
               color: AppColors.text,
               fontSize: isMobile ? 12 : 14,
             ),

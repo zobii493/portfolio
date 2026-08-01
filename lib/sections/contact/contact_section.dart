@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hire_me/core/app_colors.dart';
 import 'package:hire_me/widgets/glass_card.dart';
 import 'package:http/http.dart' as http;
@@ -186,7 +185,8 @@ class _ContactSectionState extends State<ContactSection>
           const SizedBox(width: 12),
           Text(
             'GET IN TOUCH',
-            style: GoogleFonts.jetBrainsMono(
+            style: const TextStyle(
+              fontFamily: 'JetBrainsMono',
               fontSize: 11,
               letterSpacing: 4,
               color: AppColors.primary,
@@ -203,7 +203,8 @@ class _ContactSectionState extends State<ContactSection>
         ).createShader(b),
         child: Text(
           "Let's Work\nTogether",
-          style: GoogleFonts.poppins(
+          style: const TextStyle(
+            fontFamily: 'Poppins',
             fontSize: 50,
             fontWeight: FontWeight.w800,
             color: Colors.white,
@@ -214,7 +215,8 @@ class _ContactSectionState extends State<ContactSection>
       const SizedBox(height: 16),
       Text(
         "Have a project in mind? I'd love to hear about it.\nLet's build something amazing together.",
-        style: GoogleFonts.inter(
+        style: const TextStyle(
+          fontFamily: 'Inter',
           fontSize: 15,
           color: AppColors.textSecondary,
           height: 1.65,
@@ -314,7 +316,8 @@ class _ContactSectionState extends State<ContactSection>
       children: [
         Text(
           'Send a Message',
-          style: GoogleFonts.poppins(
+          style: const TextStyle(
+            fontFamily: 'Poppins',
             fontSize: 18,
             fontWeight: FontWeight.w700,
             color: AppColors.text,
@@ -323,7 +326,8 @@ class _ContactSectionState extends State<ContactSection>
         const SizedBox(height: 4),
         Text(
           'I typically reply within 24 hours.',
-          style: GoogleFonts.inter(
+          style: const TextStyle(
+            fontFamily: 'Inter',
             fontSize: 12,
             color: AppColors.textSecondary,
           ),
@@ -390,11 +394,12 @@ class _ContactSectionState extends State<ContactSection>
       focusNode: focus,
       maxLines: maxLines,
       keyboardType: keyboardType,
-      style: GoogleFonts.inter(color: AppColors.text, fontSize: 14),
+      style: const TextStyle(fontFamily: 'Inter', color: AppColors.text, fontSize: 14),
       cursorColor: accent,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: GoogleFonts.inter(
+        labelStyle: TextStyle(
+          fontFamily: 'Inter',
           color: isFocused ? accent : AppColors.textSecondary,
           fontSize: 13,
         ),
@@ -470,7 +475,8 @@ class _ContactSectionState extends State<ContactSection>
                       const SizedBox(width: 8),
                       Text(
                         'Message Sent!',
-                        style: GoogleFonts.poppins(
+                        style: const TextStyle(
+                          fontFamily: 'Poppins',
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                           fontSize: 15,
@@ -483,7 +489,8 @@ class _ContactSectionState extends State<ContactSection>
                     children: [
                       Text(
                         'Send Message',
-                        style: GoogleFonts.poppins(
+                        style: const TextStyle(
+                          fontFamily: 'Poppins',
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
                           fontSize: 15,
@@ -603,7 +610,8 @@ class _InfoCard extends StatelessWidget {
             children: [
               Text(
                 item.label.toUpperCase(),
-                style: GoogleFonts.jetBrainsMono(
+                style: TextStyle(
+                  fontFamily: 'JetBrainsMono',
                   fontSize: 9,
                   letterSpacing: 2.5,
                   color: item.color,
@@ -613,7 +621,8 @@ class _InfoCard extends StatelessWidget {
               const SizedBox(height: 3),
               Text(
                 item.value,
-                style: GoogleFonts.inter(
+                style: const TextStyle(
+                  fontFamily: 'Inter',
                   fontSize: 13,
                   color: AppColors.text,
                   fontWeight: FontWeight.w500,

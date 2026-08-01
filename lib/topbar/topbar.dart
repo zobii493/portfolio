@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hire_me/core/app_colors.dart';
 import 'package:hire_me/widgets/pulsing_dot.dart';
 import 'package:provider/provider.dart';
@@ -158,7 +157,8 @@ class _NavItemState extends State<_NavItem> {
           children: [
             AnimatedDefaultTextStyle(
               duration: const Duration(milliseconds: 180),
-              style: GoogleFonts.dmSans(
+              style: TextStyle(
+                fontFamily: 'DMSans',
                 fontSize: 14,
                 fontWeight: widget.isActive || _hovered
                     ? FontWeight.w700
@@ -245,7 +245,8 @@ class _HireMeBtnState extends State<_HireMeBtn> {
           ),
           child: Text(
             'Hire Me',
-            style: GoogleFonts.dmSans(
+            style: const TextStyle(
+              fontFamily: 'DMSans',
               fontSize: 14,
               fontWeight: FontWeight.w800,
               color: Colors.black,
@@ -547,7 +548,8 @@ class _MobileDrawerState extends State<_MobileDrawer>
                             child: Center(
                               child: Text(
                                 'Hire Me',
-                                style: GoogleFonts.dmSans(
+                                style: const TextStyle(
+                                  fontFamily: 'DMSans',
                                   fontSize: 15,
                                   fontWeight: FontWeight.w800,
                                   color: Colors.black,
@@ -579,7 +581,8 @@ class _MobileDrawerState extends State<_MobileDrawer>
                               const SizedBox(width: 8),
                               Text(
                                 'Available for work',
-                                style: GoogleFonts.dmSans(
+                                style: const TextStyle(
+                                  fontFamily: 'DMSans',
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600,
                                   color: const Color(0xFF00C853),
@@ -661,7 +664,8 @@ class _DrawerNavItemState extends State<_DrawerNavItem> {
               child: Center(
                 child: Text(
                   '0${widget.index + 1}',
-                  style: GoogleFonts.firaCode(
+                  style: TextStyle(
+                    fontFamily: 'FiraCode',
                     fontSize: 10,
                     color: widget.isActive
                         ? AppColors.primary
@@ -674,7 +678,8 @@ class _DrawerNavItemState extends State<_DrawerNavItem> {
             const SizedBox(width: 14),
             Text(
               widget.label,
-              style: GoogleFonts.dmSans(
+              style: TextStyle(
+                fontFamily: 'DMSans',
                 fontSize: 15,
                 fontWeight: widget.isActive ? FontWeight.w700 : FontWeight.w500,
                 color: widget.isActive

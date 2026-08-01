@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hire_me/core/app_colors.dart';
 import 'package:hire_me/widgets/animated_section.dart';
+import 'package:hire_me/widgets/section_header.dart';
 
 class AboutSection extends StatelessWidget {
   const AboutSection({super.key});
@@ -9,6 +9,7 @@ class AboutSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isMobile = MediaQuery.of(context).size.width < 800;
+    final isTablet = MediaQuery.of(context).size.width >= 600 && MediaQuery.of(context).size.width < 1000;
 
     return Container(
       color: AppColors.backColor,
@@ -19,7 +20,15 @@ class AboutSection extends StatelessWidget {
           AnimatedSection(
             visibilityKey: 'about-title',
             slideBegin: const Offset(0, 0.4),
-            child: _buildSectionTitle(),
+            child: SectionHeader(
+              label: 'PORTFOLIO',
+              title: 'About Me',
+              titleSize: isMobile
+                  ? 32
+                  : isTablet
+                  ? 40
+                  : 48,
+            ),
           ),
           const SizedBox(height: 60),
           if (isMobile)
@@ -73,42 +82,13 @@ class AboutSection extends StatelessWidget {
     );
   }
 
-  Widget _buildSectionTitle() => Column(
-    children: [
-      ShaderMask(
-        shaderCallback: (b) => const LinearGradient(
-          colors: [Color(0xFF00F5FF), Color(0xFF0080FF)],
-        ).createShader(b),
-        child: Text(
-          'About Me',
-          style: GoogleFonts.spaceGrotesk(
-            fontSize: 48,
-            fontWeight: FontWeight.w800,
-            color: Colors.white,
-            letterSpacing: 1.0,
-          ),
-        ),
-      ),
-      const SizedBox(height: 10),
-      Container(
-        width: 80,
-        height: 4,
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Color(0xFF00F5FF), Color(0xFF0080FF)],
-          ),
-          borderRadius: BorderRadius.circular(2),
-        ),
-      ),
-    ],
-  );
-
   Widget _buildLeftContent() => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
         'Passionate Flutter Developer',
-        style: GoogleFonts.poppins(
+        style: const TextStyle(
+          fontFamily: 'Poppins',
           fontSize: 28,
           fontWeight: FontWeight.w700,
           color: AppColors.primary,
@@ -118,7 +98,8 @@ class AboutSection extends StatelessWidget {
       const SizedBox(height: 20),
       Text(
         "I'm a dedicated mobile app developer with a strong focus on creating beautiful, performant, and user-friendly applications. With expertise in Flutter and modern development practices, I transform ideas into reality.",
-        style: GoogleFonts.inter(
+        style: const TextStyle(
+          fontFamily: 'Inter',
           fontSize: 16,
           color: AppColors.textSecondary,
           height: 1.8,
@@ -153,7 +134,8 @@ class AboutSection extends StatelessWidget {
     children: [
       Text(
         'Experience & Education',
-        style: GoogleFonts.poppins(
+        style: const TextStyle(
+          fontFamily: 'Poppins',
           fontSize: 24,
           fontWeight: FontWeight.w700,
           color: Colors.white,
@@ -236,7 +218,7 @@ class AboutSection extends StatelessWidget {
   }
 }
 
-// ── Sub widgets ───────────────────────────────────────────────
+// ── Sub widgets
 
 class _KeyPoint extends StatelessWidget {
   final IconData icon;
@@ -277,7 +259,8 @@ class _KeyPoint extends StatelessWidget {
           children: [
             Text(
               title,
-              style: GoogleFonts.poppins(
+              style: const TextStyle(
+                fontFamily: 'Poppins',
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
@@ -286,7 +269,8 @@ class _KeyPoint extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               description,
-              style: GoogleFonts.inter(
+              style: const TextStyle(
+                fontFamily: 'Inter',
                 fontSize: 14,
                 color: AppColors.textSecondary,
                 height: 1.6,
@@ -357,7 +341,8 @@ class _TimelineItem extends StatelessWidget {
           children: [
             Text(
               year,
-              style: GoogleFonts.firaCode(
+              style: const TextStyle(
+                fontFamily: 'FiraCode',
                 fontSize: 12,
                 color: const Color(0xFF00F5FF),
                 fontWeight: FontWeight.w600,
@@ -366,7 +351,8 @@ class _TimelineItem extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               title,
-              style: GoogleFonts.poppins(
+              style: const TextStyle(
+                fontFamily: 'Poppins',
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
@@ -375,7 +361,8 @@ class _TimelineItem extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               company,
-              style: GoogleFonts.inter(
+              style: const TextStyle(
+                fontFamily: 'Inter',
                 fontSize: 14,
                 color: const Color(0xFF9D4EDD),
                 fontWeight: FontWeight.w500,
@@ -384,7 +371,8 @@ class _TimelineItem extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               description,
-              style: GoogleFonts.inter(
+              style: const TextStyle(
+                fontFamily: 'Inter',
                 fontSize: 14,
                 color: AppColors.textSecondary,
                 height: 1.6,
@@ -453,7 +441,8 @@ class _StatItem extends StatelessWidget {
               ).createShader(b),
               child: Text(
                 number,
-                style: GoogleFonts.spaceGrotesk(
+                style: const TextStyle(
+                  fontFamily: 'SpaceGrotesk',
                   fontSize: 42,
                   fontWeight: FontWeight.w800,
                   color: Colors.white,
@@ -463,7 +452,8 @@ class _StatItem extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               label,
-              style: GoogleFonts.inter(
+              style: const TextStyle(
+                fontFamily: 'Inter',
                 fontSize: 14,
                 color: AppColors.textSecondary,
                 fontWeight: FontWeight.w500,

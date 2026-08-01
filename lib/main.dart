@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hire_me/dashboard.dart';
 import 'package:hire_me/providers/nav_provider.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'Zohaib Hassan',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'Inter',
         scaffoldBackgroundColor: const Color(0xFF050505),
         colorScheme: ColorScheme.dark(
           primary: const Color(0xFF00F5FF),

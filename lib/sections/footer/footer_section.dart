@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hire_me/core/app_colors.dart';
 import 'package:hire_me/core/app_utils.dart';
 import 'package:hire_me/widgets/glow_button.dart';
@@ -139,7 +138,8 @@ class _FooterSectionState extends State<FooterSection>
                   child: Text(
                     "Have a Project\nIn Mind?",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
                       fontSize: isMobile ? 34 : 52,
                       fontWeight: FontWeight.w800,
                       color: Colors.white,
@@ -153,7 +153,8 @@ class _FooterSectionState extends State<FooterSection>
                       ? "Let's turn your idea into a beautiful product."
                       : "Let's collaborate and turn your idea into a beautiful,\nfunctional product that users will love.",
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.inter(
+                  style: TextStyle(
+                    fontFamily: 'Inter',
                     fontSize: isMobile ? 13 : 15,
                     color: AppColors.textSecondary,
                     height: 1.7,
@@ -270,7 +271,8 @@ class _FooterSectionState extends State<FooterSection>
               ).createShader(b),
               child: Text(
                 'Zohaib.dev',
-                style: GoogleFonts.poppins(
+                style: const TextStyle(
+                  fontFamily: 'Poppins',
                   fontSize: 22,
                   fontWeight: FontWeight.w800,
                   color: Colors.white,
@@ -283,7 +285,8 @@ class _FooterSectionState extends State<FooterSection>
       const SizedBox(height: 18),
       Text(
         'Flutter developer crafting beautiful, high-performance cross-platform applications with clean code and modern design.',
-        style: GoogleFonts.inter(
+        style: const TextStyle(
+          fontFamily: 'Inter',
           fontSize: 13.5,
           color: AppColors.textSecondary,
           height: 1.75,
@@ -304,7 +307,8 @@ class _FooterSectionState extends State<FooterSection>
             const SizedBox(width: 8),
             Text(
               'Available for freelance',
-              style: GoogleFonts.inter(
+              style: const TextStyle(
+                fontFamily: 'Inter',
                 fontSize: 12,
                 color: const Color(0xFF00C853),
                 fontWeight: FontWeight.w600,
@@ -351,7 +355,8 @@ class _FooterSectionState extends State<FooterSection>
               Flexible(
                 child: Text(
                   s,
-                  style: GoogleFonts.inter(
+                  style: const TextStyle(
+                    fontFamily: 'Inter',
                     fontSize: 13,
                     color: AppColors.textSecondary,
                     height: 1.5,
@@ -390,7 +395,8 @@ class _FooterSectionState extends State<FooterSection>
       const SizedBox(width: 8),
       Text(
         title,
-        style: GoogleFonts.poppins(
+        style: const TextStyle(
+          fontFamily: 'Poppins',
           fontSize: 13,
           fontWeight: FontWeight.w700,
           color: AppColors.text,
@@ -415,9 +421,10 @@ class _FooterSectionState extends State<FooterSection>
           children: [
             Text(
               '© ${DateTime.now().year} ',
-              style: GoogleFonts.jetBrainsMono(
+              style: const TextStyle(
+                fontFamily: 'JetBrainsMono',
                 fontSize: 11,
-                color: AppColors.textSecondary.withValues(alpha: 0.6),
+                color: AppColors.textSecondary,
               ),
             ),
             ShaderMask(
@@ -426,7 +433,8 @@ class _FooterSectionState extends State<FooterSection>
               ).createShader(b),
               child: Text(
                 'Zohaib.dev',
-                style: GoogleFonts.jetBrainsMono(
+                style: const TextStyle(
+                  fontFamily: 'JetBrainsMono',
                   fontSize: 11,
                   fontWeight: FontWeight.w700,
                   color: Colors.white,
@@ -435,9 +443,10 @@ class _FooterSectionState extends State<FooterSection>
             ),
             Text(
               ' · All rights reserved',
-              style: GoogleFonts.jetBrainsMono(
+              style: const TextStyle(
+                fontFamily: 'JetBrainsMono',
                 fontSize: 11,
-                color: AppColors.textSecondary.withValues(alpha: 0.6),
+                color: AppColors.textSecondary,
               ),
             ),
           ],
@@ -447,9 +456,10 @@ class _FooterSectionState extends State<FooterSection>
           children: [
             Text(
               'Built with ',
-              style: GoogleFonts.jetBrainsMono(
+              style: const TextStyle(
+                fontFamily: 'JetBrainsMono',
                 fontSize: 11,
-                color: AppColors.textSecondary.withValues(alpha: 0.5),
+                color: AppColors.textSecondary,
               ),
             ),
             const FaIcon(
@@ -459,9 +469,10 @@ class _FooterSectionState extends State<FooterSection>
             ),
             Text(
               ' Flutter & Dart ',
-              style: GoogleFonts.jetBrainsMono(
+              style: const TextStyle(
+                fontFamily: 'JetBrainsMono',
                 fontSize: 11,
-                color: AppColors.textSecondary.withValues(alpha: 0.5),
+                color: AppColors.textSecondary,
               ),
             ),
             const FaIcon(
@@ -529,7 +540,8 @@ class _PulseBadge extends StatelessWidget {
                     isNarrow
                         ? 'Open to opportunities'
                         : 'Open to new opportunities',
-                    style: GoogleFonts.jetBrainsMono(
+                    style: TextStyle(
+                      fontFamily: 'JetBrainsMono',
                       fontSize: isNarrow ? 9 : 11,
                       letterSpacing: isNarrow ? 0.5 : 1.5,
                       color: AppColors.primary,
@@ -579,7 +591,8 @@ class _FooterNavItemState extends State<_FooterNavItem> {
         padding: const EdgeInsets.only(bottom: 12),
         child: AnimatedDefaultTextStyle(
           duration: const Duration(milliseconds: 180),
-          style: GoogleFonts.inter(
+          style: TextStyle(
+            fontFamily: 'Inter',
             fontSize: 13,
             color: _hovered ? AppColors.primary : AppColors.textSecondary,
             fontWeight: _hovered ? FontWeight.w600 : FontWeight.w400,
@@ -667,15 +680,17 @@ class _SocialCardState extends State<_SocialCard> {
                   children: [
                     Text(
                       widget.social.label,
-                      style: GoogleFonts.inter(
+                      style: TextStyle(
+                        fontFamily: 'Inter',
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
-                        color: _hovered ? c : AppColors.text,
+                        color: _hovered ? AppColors.text : AppColors.text,
                       ),
                     ),
                     Text(
                       widget.social.handle,
-                      style: GoogleFonts.jetBrainsMono(
+                      style: const TextStyle(
+                        fontFamily: 'JetBrainsMono',
                         fontSize: 10,
                         color: AppColors.textSecondary,
                       ),

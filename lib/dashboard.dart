@@ -7,8 +7,11 @@ import 'package:hire_me/sections/hero/hero_section.dart';
 import 'package:hire_me/sections/projects/projects_section.dart';
 import 'package:hire_me/sections/skills/skills_section.dart';
 import 'package:hire_me/topbar/topbar.dart';
+import 'package:hire_me/widgets/loading_indicator.dart';
 import 'package:provider/provider.dart';
 import 'core/app_colors.dart';
+import 'data/projects_data.dart';
+import 'data/skills_data.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -25,6 +28,37 @@ class _DashboardState extends State<Dashboard> {
   final _skillsKey   = GlobalKey();
   final _projectsKey = GlobalKey();
   final _contactKey  = GlobalKey();
+
+  bool _isLoading = true;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_isLoading) {
+      _precacheImages();
+    }
+  }
+
+  Future<void> _precacheImages() async {
+    final images = [
+      'assets/profile/Frame.png',
+      'assets/profile/logo1.png',
+      ...kProjects.map((p) => p.image),
+      ...kSkillCategories.expand((c) => c.skills.map((s) => s.assetPath)),
+    ];
+
+    try {
+      await Future.wait(images.map((path) => precacheImage(AssetImage(path), context)));
+    } catch (e) {
+      debugPrint("Error precaching images: $e");
+    }
+
+    // Small extra delay for a professional feel
+    await Future.delayed(const Duration(milliseconds: 1500));
+    if (mounted) {
+      setState(() => _isLoading = false);
+    }
+  }
 
   void _scrollTo(GlobalKey key) {
     final ctx = key.currentContext;
@@ -56,6 +90,10 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return LoadingScreen();
+    }
+
     return Scaffold(
       backgroundColor: AppColors.backColor,
       body: Stack(
