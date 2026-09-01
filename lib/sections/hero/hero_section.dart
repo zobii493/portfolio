@@ -268,7 +268,7 @@ class _HeroSectionState extends State<HeroSection>
                   shape: BoxShape.circle,
                   gradient: RadialGradient(
                     colors: [
-                      AppColors.primary.withValues(alpha: 
+                      AppColors.primary.withValues(alpha:
                         0.07 + _glowCtrl.value * 0.06,
                       ),
                       AppColors.secondary.withValues(alpha: 0.04),
@@ -334,7 +334,7 @@ class _HeroSectionState extends State<HeroSection>
               bottom: size * 0.08,
               left: 0,
               child: _FloatingTag(
-                label: '2+ Yrs Exp',
+                label: '3+ Yrs Exp',
                 icon: FontAwesomeIcons.solidStar,
                 color: AppColors.accent,
               ),
@@ -376,7 +376,7 @@ class _HelloBadge extends StatelessWidget {
               color: AppColors.primary,
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primary.withValues(alpha: 
+                  color: AppColors.primary.withValues(alpha:
                     0.5 + glowCtrl.value * 0.3,
                   ),
                   blurRadius: 6,
@@ -634,7 +634,7 @@ class _HireMeButtonState extends State<_HireMeButton> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primary.withValues(alpha: 
+                  color: AppColors.primary.withValues(alpha:
                     _hovered ? 0.5 : 0.25 + gv * 0.15,
                   ),
                   blurRadius: _hovered ? 32 : 18,

@@ -71,7 +71,7 @@ class _PortfolioTopBarState extends State<PortfolioTopBar>
                   color: AppColors.cardColor.withValues(alpha: 0.82),
                   border: Border(
                     bottom: BorderSide(
-                      color: AppColors.primary.withValues(alpha: 
+                      color: AppColors.primary.withValues(alpha:
                         0.08 + _glowCtrl.value * 0.10,
                       ),
                       width: 1,
@@ -122,7 +122,7 @@ class _PortfolioTopBarState extends State<PortfolioTopBar>
   }
 }
 
-// ── Nav Item ──────────────────────────────────────────────────
+// ── Nav Item 
 
 class _NavItem extends StatefulWidget {
   final String label;
@@ -190,7 +190,7 @@ class _NavItemState extends State<_NavItem> {
   );
 }
 
-// ── Hire Me Btn ───────────────────────────────────────────────
+// ── Hire Me Btn
 
 class _HireMeBtn extends StatefulWidget {
   final AnimationController glowCtrl;
@@ -235,7 +235,7 @@ class _HireMeBtnState extends State<_HireMeBtn> {
             ),
             boxShadow: [
               BoxShadow(
-                color: AppColors.primary.withValues(alpha: 
+                color: AppColors.primary.withValues(alpha:
                   _hovered ? 0.45 : 0.18 + widget.glowCtrl.value * 0.12,
                 ),
                 blurRadius: _hovered ? 24 : 14,
@@ -258,7 +258,7 @@ class _HireMeBtnState extends State<_HireMeBtn> {
   );
 }
 
-// ── Hamburger ─────────────────────────────────────────────────
+// ── Hamburger
 
 class _HamburgerBtn extends StatefulWidget {
   final AnimationController glowCtrl;
@@ -317,7 +317,7 @@ class _HamburgerBtnState extends State<_HamburgerBtn> {
             borderRadius: BorderRadius.circular(11),
             color: AppColors.surface.withValues(alpha: 0.7),
             border: Border.all(
-              color: AppColors.primary.withValues(alpha: 
+              color: AppColors.primary.withValues(alpha:
                 0.15 + widget.glowCtrl.value * 0.15,
               ),
             ),
@@ -333,7 +333,7 @@ class _HamburgerBtnState extends State<_HamburgerBtn> {
   );
 }
 
-// ── Drawer Overlay ────────────────────────────────────────────
+// ── Drawer Overlay
 
 class _DrawerOverlay extends StatefulWidget {
   final int activeIndex;
@@ -406,7 +406,7 @@ class _DrawerOverlayState extends State<_DrawerOverlay>
   );
 }
 
-// ── Mobile Drawer ─────────────────────────────────────────────
+// ── Mobile Drawer
 
 class _MobileDrawer extends StatefulWidget {
   final int activeIndex;
@@ -604,7 +604,7 @@ class _MobileDrawerState extends State<_MobileDrawer>
   );
 }
 
-// ── Drawer Nav Item ───────────────────────────────────────────
+// ── Drawer Nav Item
 
 class _DrawerNavItem extends StatefulWidget {
   final String label;

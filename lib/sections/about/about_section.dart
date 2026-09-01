@@ -180,7 +180,7 @@ class AboutSection extends StatelessWidget {
           final isMobile = constraints.maxWidth < 600;
           final items = [
             _StatItem(
-              number: '2+',
+              number: '3+',
               label: 'Years Experience',
               icon: Icons.work_outline,
             ),
